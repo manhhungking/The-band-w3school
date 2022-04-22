@@ -11,7 +11,7 @@ html {
 }
 
 /* 
-Nguyên tắc làm việc:  
+Nguyên tắc làm việc:   
 1. từ ngoài vào trong
 2. từ trên xuống dưới
 3. từ tổng quan đến chi tiết
@@ -48,6 +48,9 @@ Nguyên tắc làm việc:
 .mt-16 {
   margin-top: 16px !important;
 }
+.mt-32 {
+  margin-top: 32px !important;
+}
 .pull-right {
   float: right !important;
 }
@@ -75,6 +78,7 @@ Nguyên tắc làm việc:
   margin-top: 15px;
   cursor: pointer;
   border: none;
+  -webkit-appearance: none;
 }
 .btn:hover {
   color: #000;
@@ -83,6 +87,7 @@ Nguyên tắc làm việc:
 }
 /* Main */
 #main {
+  overflow: hidden; /*the con nao chui ra khỏi phạm vi thẻ cha thì sẽ bị ẩn đi*/
 }
 
 #header {
@@ -149,17 +154,32 @@ Nguyên tắc làm việc:
 #nav .nav-arrow-down {
   font-size: 14px;
 }
+#header .mobile-menu-btn {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
 
+#header .mobile-menu-btn,
 #header .search-btn {
   float: right;
   max-height: 46px;
   line-height: 36px;
   padding: 0 21px;
 }
+
 #header .search-btn:hover {
   background-color: #f44336;
   cursor: pointer;
 }
+#header .mobile-menu-btn:hover {
+  background-color: #ccc;
+}
+#header .mobile-menu-btn:hover .menu-icon {
+  color: #000;
+}
+#header .menu-icon,
 #header .search-icon {
   color: #fff;
   font-size: 24px;
@@ -169,7 +189,7 @@ Nguyên tắc làm việc:
   position: relative;
   margin-top: 46px;
   padding-top: 50%; /*% thì luôn là 50% chiều ngang của chính nó*/
-  background: url("/assets/img/chicago.jpg") top center / cover no-repeat; /*sau dấu gạch chéo thể hiện bg size và bg repeat*/
+  background: url("../img/chicago.jpg") top center / cover no-repeat; /*sau dấu gạch chéo thể hiện bg size và bg repeat*/
 }
 #slider .text-content {
   position: absolute;
@@ -191,6 +211,7 @@ Nguyên tắc làm việc:
 #slider .text-description {
   font-size: 15px;
   margin-top: 25px;
+  text-shadow: 0 0 1px #000;
 }
 
 #content {
@@ -198,9 +219,12 @@ Nguyên tắc làm việc:
 
 #content .content-section {
   width: 800px;
+  max-width: 100%;
   padding: 64px 0 112px;
   margin-left: auto;
   margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 #content .section-heading {
@@ -225,7 +249,7 @@ Nguyên tắc làm việc:
 }
 
 #content .member-list {
-  margin-top: 48px;
+  margin-top: 32px;
   /* overflow: hidden; 1 cách để xử lí lỗi thẻ div ko bọc đc các ảnh float left*/
 }
 
@@ -276,7 +300,7 @@ Nguyên tắc làm việc:
 }
 /* Places */
 .places-list {
-  margin-top: 32px;
+  margin-top: 16px;
 }
 .place-img {
   width: 100%;
@@ -414,7 +438,13 @@ header.modal-header {
   font-size: 18px;
   line-height: 1.6;
 }
-
+.contact-info a {
+  color: rgb(19, 19, 239);
+  opacity: 0.8;
+}
+.contact-info a:hover {
+  opacity: 1;
+}
 .contact-info .contact-icon {
   width: 30px;
 }
@@ -460,3 +490,14 @@ header.modal-header {
 #footer .copyright a {
   color: rgba(0, 0, 0, 0.7);
 }
+
+/* ----------------- Tablet ---------------- */
+/* @media (max-width: 1023px) and (min-width: 740px) {
+} */
+
+/* 
+PC: >= 1024px
+TABLET: 740px <= x < 1024px
+MOBILE: < 740px
+
+*/

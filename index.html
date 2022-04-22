@@ -6,13 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The band</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
     <link rel="icon" href="./assets/img/favicon.png" type="image/x-icon" />
     <!-- ionic icon -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/0230aae2ed.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./assets/css/style.css">
+
 </head>
 
 <body>
@@ -38,11 +40,17 @@
             </ul>
             <!-- End: Nav -->
 
-            <!-- Begin: Search button -->
+            <!-- Mobile button -->
+            <div id="mobile-menu" class="mobile-menu-btn">
+                <i class="fa-solid fa-bars menu-icon"></i>
+            </div>
+
+
+            <!-- Search button -->
             <div class="search-btn">
                 <ion-icon name="search-outline" class="search-icon"></ion-icon>
             </div>
-            <!-- End: Search button -->
+
         </div>
 
         <div id="slider">
@@ -70,15 +78,15 @@
                     aliqua. Ut enim ad minim
                     veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 <div class="row member-list">
-                    <div class="col col-third text-center">
+                    <div class="col col-third s-col-full mt-32 text-center">
                         <p class="member-name">Name</p>
                         <img src="./assets/img/bandmember.jpg" alt="Name" class="member-img">
                     </div>
-                    <div class="col col-third text-center">
+                    <div class="col col-third s-col-full mt-32 text-center">
                         <p class="member-name">Name</p>
                         <img src="./assets/img/bandmember.jpg" alt="Name" class="member-img">
                     </div>
-                    <div class="col col-third text-center">
+                    <div class="col col-third s-col-full mt-32 text-center">
                         <p class="member-name">Name</p>
                         <img src="./assets/img/bandmember.jpg" alt="Name" class="member-img">
                     </div>
@@ -98,7 +106,7 @@
                     </ul>
                     <!-- Places -->
                     <div class="row places-list">
-                        <div class="col col-third">
+                        <div class="col col-third s-col-full mt-16">
                             <img src="./assets/img/place/newyork.jpg" alt="New York" class="place-img">
                             <div class="place-body">
                                 <h3 class="place-heading">New York</h3>
@@ -109,7 +117,7 @@
                             </div>
                         </div>
 
-                        <div class="col col-third">
+                        <div class="col col-third s-col-full mt-16">
                             <img src="./assets/img/place/paris.jpg" alt="Paris" class="place-img">
                             <div class="place-body">
                                 <h3 class="place-heading">Paris</h3>
@@ -120,7 +128,7 @@
                             </div>
                         </div>
 
-                        <div class="col col-third">
+                        <div class="col col-third s-col-full mt-16">
                             <img src="./assets/img/place/sanfran.jpg" alt="San Francisco" class="place-img">
                             <div class="place-body">
                                 <h3 class="place-heading">San Francisco</h3>
@@ -141,27 +149,28 @@
                 <h2 class="section-heading">CONTACT</h2>
                 <p class="section-subheading">Fan? Drop a note!</p>
                 <div class="row contact-content">
-                    <div class="col col-half contact-info">
+                    <div class="col col-half s-col-full contact-info">
                         <p>
                             <ion-icon name="location-outline" class="contact-icon"></ion-icon>
                             Chicago, US
                         </p>
                         <p>
                             <ion-icon name="call-outline" class="contact-icon"></ion-icon>
-                            Phone: +00 151515
+                            Phone: <a href="tel:+00 151515" target="_blank">+00 151515</a>
                         </p>
                         <p>
                             <ion-icon name="mail-outline" class="contact-icon"></ion-icon>
-                            Email: mail@mail.com
+                            Email: <a href="mailto: trinhmanhhung03@gmail.com"
+                                target="_blank">trinhmanhhung03@mail.com</a>
                         </p>
                     </div>
-                    <div class="col col-half contact-form">
+                    <div class="col col-half s-col-full contact-form">
                         <form action="">
                             <div class="row ">
-                                <div class="col col-half">
+                                <div class="col col-half s-col-full">
                                     <input type="text" placeholder="Name" required name="" id="" class="form-control">
                                 </div>
-                                <div class="col col-half">
+                                <div class="col col-half s-col-full s-mt-8">
                                     <input type="email" placeholder="Email" required name="" id="" class="form-control">
                                 </div>
                             </div>
@@ -171,7 +180,8 @@
                                         class="form-control">
                                 </div>
                             </div>
-                            <input class="btn pull-right mt-16" type="submit" value="SEND">
+                            <input class="contact-submit-btn btn pull-right mt-16 s-full-width" type="submit"
+                                value="SEND">
                         </form>
                     </div>
                 </div>
@@ -268,6 +278,42 @@
         })
     </script>
 
+
+    <script>
+        var header = document.getElementById("header");
+        var mobileMenu = document.getElementById("mobile-menu");
+        var headerHeight = header.clientHeight;
+
+        // Đóng/mở  menu mobile
+        mobileMenu.onclick = function () {
+            var isClose = header.clientHeight === headerHeight;
+            if (isClose) {
+                header.style.height = 'auto';
+            }
+            else {
+                header.style.height = null;
+            }
+            //console.log(header.clientHeight)
+        }
+
+        // Tự đọng đóng khi chọn menu
+        var menuItems = document.querySelectorAll('#nav li a[href*="#"]')
+        console.log(menuItems)
+        for (let i = 0; i < menuItems.length; i++) {
+            var menuItem = menuItems[i]
+            console.log(menuItem.nextElementSibling)
+            menuItem.onclick = function (event) {
+                //console.log(this)
+                var isParentMenu = this.nextElementSibling && this.nextElementSibling.classList.contains('subnav')
+                if (!isParentMenu) {
+                    header.style.height = null;
+                }
+                else {
+                    event.preventDefault();
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>

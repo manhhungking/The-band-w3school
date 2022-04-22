@@ -1,4 +1,5 @@
 https://www.w3schools.com/w3css/tryw3css_templates_band.htm
+
 B1: Phân tích
 	Phân tích giao diện website mẫu mình dùng
 	1. Header
@@ -24,3 +25,18 @@ Những thành phần thường gặp trên giao diện website:
 6. Content (Nội dung chính)
 7. Footer (Chân trang)
 8. Banner (Ảnh muốn người dùng để ý)
+
+CSS Flexbox
+- display: flex
+- flex-direction: row | column (colum thì flex item đổi theo chiều dọc)
+- flex-wrap: nowrap (mọi thẻ đều nằm trên 1 hàng) | wrap (thẻ con sẽ xuống dòng) | wrap-reverse (đảo ngược cross start, cross end))
+- flex-flow: <flex-direction> | <flex-wrap> (cú pháp rút gọn của flex-direction and flex-wrap)
+- flex-basis: <length> (set kích thước của main size)
+- justify-content: flex-start | flex-end | center | space-between | space-around (căn theo trục main axis)
+- justify-self: flex-start | flex-end | center (căn cho thẻ flex item)
+- align-content: flex-start | flex-end | center (căn theo trục cross start, cross end)
+- align-self: flex-start | flex-end | center (căn theo trục cross cho flex item)
+- flex-grow: <number> (tăng kích thước flex item theo main axis)
+- flex-shirnk: <number> (ngược lại so với flex-grow)
+- flex: <flex-grow> | <flex-shrink> | <flex-basis>
+- order: <number> (thứ tự flex item được hiển thị)
